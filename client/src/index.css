@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0A0F1C;
+  --surface-panel: #0D1424;
+  --surface-subtle: #111A2E;
+  --surface-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    background-color: #0A0F1C;
+    color: #F3F4F6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Flat dark surface for dashboards, tables, forms, stats, and summaries */
+  .panel {
+    background-color: #0D1424;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+  }
+
+  .panel-subtle {
+    background-color: #111A2E;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.5rem;
+  }
+
+  /* Frosted glass overlay - for scanner overlay only */
+  .glass-panel {
+    background: rgba(10, 15, 28, 0.78);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Interactive button states */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-medium rounded-lg px-4 py-2 text-sm text-white bg-brand-blue hover:bg-blue-600 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium rounded-lg px-4 py-2 text-sm text-gray-200 bg-surface-subtle border border-surface-border hover:bg-surface-card hover:border-surface-border-bright active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center font-medium rounded-lg px-4 py-2 text-sm text-white bg-signal-red hover:bg-red-600 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-amber {
+    @apply inline-flex items-center justify-center font-medium rounded-lg px-4 py-2 text-sm text-black font-semibold bg-signal-amber hover:bg-amber-400 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  /* Custom input styling */
+  .input-dark {
+    @apply w-full bg-surface-subtle border border-surface-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors;
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0F1C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1F293D;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+  }
+}
